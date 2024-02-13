@@ -5,7 +5,7 @@
 </template>
 
 <script setup lang="ts">
-import { inject, provide, onUnmounted, onMounted, watch, computed, ref } from "vue";
+import { inject, provide, onUnmounted, onMounted, watch, ref } from "vue";
 import VectorTileLayer, {
   type VectorTileRenderType,
 } from "ol/layer/VectorTile";
