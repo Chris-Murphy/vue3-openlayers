@@ -5,7 +5,7 @@
 </template>
 
 <script setup lang="ts">
-import { inject, provide, onUnmounted, onMounted, watch, computed, ref } from "vue";
+import { inject, provide, onUnmounted, onMounted, watch, ref } from "vue";
 import VectorLayer from "ol/layer/Vector";
 import type Map from "ol/Map";
 import usePropsAsObjectProperties from "@/composables/usePropsAsObjectProperties";
@@ -39,7 +39,7 @@ const layerGroup = inject<LayerGroup | null>("layerGroup", null);
 
 const { properties } = usePropsAsObjectProperties(props);
 
-const vectorLayer = computed(() => ref(new VectorLayer(properties)));
+const vectorLayer = ref(new VectorLayer(properties));
 
 watch(properties, () => {
   vectorLayer.value.setProperties(properties);
