@@ -5,7 +5,7 @@
 </template>
 
 <script setup lang="ts">
-import { inject, provide, onUnmounted, onMounted, watch, computed, ref } from "vue";
+import { inject, provide, onUnmounted, onMounted, watch, ref } from "vue";
 
 import VectorImageLayer from "ol/layer/VectorImage";
 import usePropsAsObjectProperties from "@/composables/usePropsAsObjectProperties";
@@ -38,7 +38,7 @@ const layerGroup = inject<LayerGroup | null>("layerGroup", null);
 
 const { properties } = usePropsAsObjectProperties(props);
 
-const vectorImageLayer = computed(() => ref(new VectorImageLayer(properties)));
+const vectorImageLayer = ref(new VectorImageLayer(properties));
 
 watch(properties, () => {
   vectorImageLayer.value.setProperties(properties);
