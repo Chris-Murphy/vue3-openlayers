@@ -5,7 +5,7 @@
 </template>
 
 <script setup lang="ts">
-import { inject, provide, onUnmounted, onMounted, watch, computed,ref } from "vue";
+import { inject, provide, onUnmounted, onMounted, watch, computed, ref } from "vue";
 import VectorTileLayer, {
   type VectorTileRenderType,
 } from "ol/layer/VectorTile";
@@ -43,7 +43,7 @@ const layerGroup = inject<LayerGroup | null>("layerGroup", null);
 
 const { properties } = usePropsAsObjectProperties(props);
 
-const vectorTileLayer = computed(() => ref(new VectorTileLayer(properties)));
+const vectorTileLayer = ref(new VectorTileLayer(properties));
 
 watch(properties, () => {
   vectorTileLayer.value.setProperties(properties);
